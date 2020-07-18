@@ -11,18 +11,9 @@ class Timer extends Component {
   }
 
   //Your code here
-
-  shouldComponentUpdate(nextProps, nextState){
-    if (this.state.time === nextState.time) {
-      return false
-    }
-    return true
-  }
-
   componentDidUpdate() {
-    this.timer.current.style.color = '#'+Math.floor(Math.random()*16777215).toString(16)
+    
   }
-
 
   componentDidMount() {
     this.interval = setInterval(
@@ -30,7 +21,6 @@ class Timer extends Component {
       this.props.updateInterval * 1000
     );
   }
-
 
   componentWillUnmount() {
     clearInterval(this.interval);
